@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+* {
+    font-family: Lobster;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-color: #524866; */
+}
+
+.page-ctn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    margin: auto;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: gold;
+}
+
+a:hover {
+    color: #28190e;
+}
+
+.form-ctn  {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.form-title {
+    font-size: 80px;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 20px;
+    color: #28180C;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    20% {opacity: 0.8}
+    40% {opacity: 0.6}
+    60% {opacity: 0.4}
+    80% {opacity: 0.2}
+    100% {opacity: 0;} 
+} 
+
+.form-error-msg {
+    margin: 20px 0px;
+    color: red;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeOut 6s 1;
+    animation-fill-mode: forwards;
+}
+
+.form-label {
+    font-size: 36px;
+    font-weight: 500;
+    color: #28180C;
+    margin-left: 12px;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    padding: 10px 0px 10px 15px;
+    font-size: 25px;
+    border: none;
+}
+
+.form-input:focus {
+    border-bottom: 8px solid #28180C;
+}
+
+.form-button {
+    width: 180px;
+    height: 40px;
+    align-self: center;
+    margin-top: 30px;
+    color: #28180C;
+    text-align: center;
+    background-color: #FED71A;
+    border-radius: 20px;
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-button:disabled {
+    background-color: lightgray;
+    color: black;
+    pointer-events: none;
+    font-weight: 400;
+}
+
+.form-button:hover {
+    color: white;
+    background-color: #28180C;
+}
+
+.form-extra {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.subject-title {
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 100;
+}

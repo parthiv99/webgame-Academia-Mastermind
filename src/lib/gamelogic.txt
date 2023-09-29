@@ -1,0 +1,59 @@
+Game flow
+
+    Initialize variables
+
+    while (questions & points < 100 & lives > 0)
+        call displayQuestionAndChoices(index)
+        Start the timer
+        If the timer is running out:
+            call disableChoices() to prevent player from attempting to answer 
+            displayMessage(msg) that says "You're running out of time"
+            call minusLives()
+        Else:
+            When user select a choice, call function checkAnswer(choice, correctAnswer)
+            if (match)
+                call function awardPoints(secondsRemaining)   
+            else:
+                display a message that says "Wrong answer! You lose"
+                call minusLives()
+        call clearQuestionAndChoices()
+        increase index by 1
+
+    if (lives == 0) call displayGameOverPopUp()
+
+    if (points == 0) 
+        call displayWinningPopUp()
+        call saveUserProgress()
+
+Initialize variables for every level:
+    let lives = 3 (player has 3 lives to play per level)
+    let points = 0 (player always starts the level from 0)
+    let index = 0 (index for looping thru questions array)
+
+Functions:
+    displayMessage(msg): display a msg to screen
+    displayQuestionAndChoices(index): Extract and display question and choices from the questionObject
+    disableChoices(): prevent player from attempting to answer questions
+    minusLives(): minus 1 from lives and display the effect on screen
+    checkAnswer(choice, correctAnswer): returns True if the selected choice matches the correct answer
+    awardPoints(secondsRemaining): will award % points based on how fast/slow player answer a question
+        // Answer within 10 seconds => receive 20% of the total level, message displayed ("Excellent")
+        // Answer within 20 seconds => receive 15% of the total level, message displayed ("Great")
+        // Answer later than 20 seconds => receive 10% of the total level, message displayed ("Good")
+        // Add earned points to variable points 
+        // Adding points to the progress bar using animation
+    clearQuestionAndChoices(): Clear the current question and choices on screen
+    displayGameOverPopUp(): display when player has run out of lives
+        Msg in the popup: "You lose"
+        Player can choose one of two options: restart or choose another subject/level
+        When selecting restart, player has to start from the beginning of that level
+    displayWinningPopUp(): display when player has got 100% points
+        Msg in the popup: "Congratulations. You've cleared level..."
+        Player can choose one of two options: restart or move to the next level
+    saveUserProgress():
+        added current level to player's unlockedLevels array
+    
+Note:
+    The timer starts at 0:30 and counts down to 0:00 
+    If player quits at anytime during a level, they have to redo it from the beginning
+    Player can still redo the level that they have cleared (for practice)
